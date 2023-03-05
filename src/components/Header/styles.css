@@ -1,0 +1,26 @@
+.container-header {
+  width: 100%;
+  heigth: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-bottom: 2px solid #3e2267;
+}
+.btn-logout {
+  all: unset;
+  cursor: pointer;
+  margin: 25px;
+  height: 30px;
+  width: 184px;
+  left: 1228px;
+  top: 20px;
+  border-radius: 30px;
+  background-color: #3e2267;
+  color: #fff;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0px;
+  text-align: center;
+}

@@ -1,0 +1,94 @@
+.border-top {
+  margin: 100px 0px;
+  border-top: 2px solid #3e2267;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.container-sign {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 500px;
+  margin-left: 180px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.label-form {
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  color: #3e2267;
+  margin: 10px 0px;
+}
+.input-form {
+  all: unset;
+  font-family: "Roboto";
+  font-size: 18px;
+  text-color: #3e2267;
+  padding-left: 20px;
+  height: 49px;
+  width: 394px;
+  left: 684px;
+  top: 261px;
+  border-radius: 30px;
+  border: 2px solid #3e2267;
+  border-color: #3e2267;
+  background-color: #d9d9d9;
+  margin: 10px 0px;
+}
+.link-form {
+  text-decoration: none;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  color: #3e2267;
+  border-bottom: 2px solid #3e2267;
+  margin-top: 30px;
+}
+.input-form:focus {
+  border-color: #6c63ff;
+}
+.link-form:hover {
+  color: #6c63ff;
+}
+
+.button-form {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 43px;
+  width: 270px;
+  left: 748px;
+  top: 542px;
+  border-radius: 20px;
+  margin: 70px 0px 0px 90px;
+  background: #3e2267;
+  color: #fff;
+  font-family: "Roboto";
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+.img-input {
+  cursor: pointer;
+  width: 23px;
+  position: relative;
+  left: 365px;
+  bottom: 45px;
+}
