@@ -2,6 +2,8 @@ import "./styles.css";
 import backGroundLogin from "../../assets/background-login.svg";
 import eyesClosed from "../../assets/eyesClosed.svg";
 import eyesOpen from "../../assets/eyesOpen.svg";
+import { Link } from "react-router-dom";
+import SignUp from "../Sign-up";
 
 
 
@@ -33,7 +35,7 @@ function handleTypeInput() {
                     <label className="label-form" htmlFor="senha">Senha</label>
                     <input className="input-form inputPassword" type="password" name="senha" ></input>
                     <img onClick={()=>handleTypeInput()} className="img-input" src={eyesClosed} alt="eyes" />
-                    <a  className="link-form" href="#">Cadastre-se</a>
+                    <Link  className="link-form" to={'/sign-up'}>Cadastre-se</Link>
                     <button className="button-form">Login</button>
                 </form>
             </div>

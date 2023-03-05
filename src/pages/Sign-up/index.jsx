@@ -1,6 +1,6 @@
 import "./styles.css";
 import backgroundSignUp from "../../assets/background-signUp.svg"
-
+import { Link } from "react-router-dom";
 
 export default function SignUp() {
     return (
@@ -17,7 +17,7 @@ export default function SignUp() {
                 <input className="input-form" name="password" type="password" /> 
                 <div className="container-button">
                     <button className="btn-signUp">Cadastre-se</button>
-                    <a className="link-button" href="">Login</a>
+                    <Link className="link-button" to={'/sign-in'}>Login</Link>
                 </div>
             </form>
         </div>
