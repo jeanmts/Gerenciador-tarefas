@@ -3,6 +3,7 @@ import SignIn from './pages/Sign-In'
 import SignUp from './pages/Sign-up';
 import Content from './pages/Content';
 import { Routes, Route} from 'react-router-dom'; 
+import NotFound from './pages/Not-found';
 function App() {
 
   return (
@@ -14,6 +15,7 @@ function App() {
         </Route>
           <Route path="/sign-up" element={<SignUp/>}/>
           <Route path="/main" element={<Content/>}/>
+          <Route path='*' element={<NotFound/>}/>
       </Routes>
     </div>
   )
