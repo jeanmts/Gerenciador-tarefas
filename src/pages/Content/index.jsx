@@ -7,7 +7,7 @@ import iconDelete from "../../assets/iconDelete.svg"
 
 
 
-export default function Main() {
+export default function Content() {
     return (
         <>
         <Header/>
