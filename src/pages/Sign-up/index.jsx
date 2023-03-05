@@ -7,7 +7,7 @@ export default function SignUp() {
         <>
         <div className="border-top"></div>
         <div className="container-signUp">
-        <div className="conatiner-form">
+        <div>
             <form className="form-signUp">
                 <label className="label-form" htmlFor="email">E-mail</label>
                 <input className="input-form" name="email" type="e-mail" />

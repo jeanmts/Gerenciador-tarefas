@@ -22,13 +22,11 @@ function handleTypeInput() {
 }
     return (
         <>
-        <div className="container-signIn">
             <div className="border-top"></div>
             <div className="container-sign">
-            <div className="container-img">
+                <div className="sign">
                 <img className="img-background" src={backGroundLogin}></img>
-            </div>
-            <div className="container-form">
+            <div>
                 <form className="form">
                     <label className="label-form" htmlFor="email">Email</label>
                     <input className="input-form" type="email" name="email"  />
@@ -39,8 +37,8 @@ function handleTypeInput() {
                     <button className="button-form">Login</button>
                 </form>
             </div>
+                </div>
             </div>
-        </div>
         </>
     )
 }
