@@ -4,12 +4,18 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  border-bottom: 2px solid #3e2267;
+}
+.border-top-header {
+  margin-top: 52px;
+  border-top: 2px solid #3e2267;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .btn-logout {
   all: unset;
   cursor: pointer;
-  margin: 25px;
+  margin-top: 35px;
   height: 30px;
   width: 184px;
   left: 1228px;
