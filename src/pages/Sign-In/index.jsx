@@ -4,12 +4,22 @@ import eyesClosed from "../../assets/eyesClosed.svg";
 import eyesOpen from "../../assets/eyesOpen.svg";
 import { Link } from "react-router-dom";
 import SignUp from "../Sign-up";
-
-
-
+import api from "../../services/api"
+import { useState, useEffect } from "react";
+import {getItem, setItem} from "../../utils/storage"
+import {useNavigate} from "react-router-dom"
 
 export default function SignIn( ) {
+    const navigate = useNavigate();
+useEffect(()=> {
+const token = getItem('token');
+    if(token) {
+        navigate('/main')
+    }
 
+},[])
+
+const [form, setForm] = useState({email: "", senha:""})
 function handleTypeInput() {
     const passWordInput = document.querySelector(".inputPassword");
     const imgInput = document.querySelector(".img-input");
@@ -22,6 +32,27 @@ function handleTypeInput() {
         imgInput.setAttribute("src", eyesClosed)
     }
 }
+function handleInputValue(e) {
+setForm({...form, [e.target.name]: e.target.value})
+}
+async function handleSubmit(e) {
+    e.preventDefault()
+try {
+        if(!form.email || !form.senha) {
+            return
+        }
+
+        const response= await api.post('/sign-in', {
+           ...form
+        })
+        const {token} = response.data 
+        setItem("token", token)
+        navigate("/main")
+    } catch (error) {
+        console.log(error)
+    }
+}
+
     return (
         <>
             <div className="border-top"></div>
@@ -29,13 +60,13 @@ function handleTypeInput() {
                 <div className="sign">
                 <img className="img-background" src={backGroundLogin}></img>
             <div>
-                <form className="form">
+                <form className="form" onSubmit={handleSubmit}>
                     <label className="label-form" htmlFor="email">Email</label>
-                    <input className="input-form" type="email" name="email"  />
+                    <input className="input-form" name='email' type="email" value={form.email} onChange={handleInputValue}></input>
                     <label className="label-form" htmlFor="senha">Senha</label>
-                    <input className="input-form inputPassword" type="password" name="senha" ></input>
+                    <input className="input-form inputPassword" type="password" name="senha" value={form.senha} onChange={handleInputValue}></input>
                     <img onClick={()=>handleTypeInput()} className="img-input" src={eyesClosed} alt="eyes" />
-                    <Link  className="link-form" to={'/sign-up'}>Cadastre-se</Link>
+                    <Link type="button" className="link-form" to={'/sign-up'}>Cadastre-se</Link>
                     <button className="button-form">Login</button>
                 </form>
             </div>
