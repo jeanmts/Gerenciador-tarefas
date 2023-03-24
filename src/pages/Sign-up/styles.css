@@ -10,8 +10,8 @@
   display: flex;
   align-items: left;
   flex-direction: column;
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 450px;
 }
 .label-form {
   font-family: "Roboto";
@@ -28,8 +28,8 @@
   font-size: 18px;
   text-color: #3e2267;
   padding-left: 20px;
-  height: 49px;
-  width: 394px;
+  height: 39px;
+  width: 294px;
   left: 684px;
   top: 261px;
   border-radius: 30px;
@@ -40,21 +40,20 @@
 }
 .container-button {
   margin-top: 30px;
-  width: 440px;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 .btn-signUp {
-  height: 63px;
+  height: 43px;
   width: 270px;
   left: 137px;
   top: 475px;
   border-radius: 20px;
   background-color: #3e2267;
   cursor: pointer;
-
   color: #fff;
   font-family: "Roboto";
   font-size: 18px;
@@ -77,19 +76,27 @@
   color: #3e2267;
   margin-top: 25px;
 }
-@media (max-width: 440px) {
+div .img-background {
+  width: 500px;
+}
+@media (max-width: 720px) {
+  .container-signUp {
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .form-signUp {
     width: 200px;
     height: 450px;
   }
   .input-form {
     width: 200px;
-    height: 50px;
+    height: 30px;
   }
   .container-button {
     width: 200px;
     height: 200px;
-    margin: 30px auto;
   }
   .btn-signUp {
     width: 200px;
@@ -99,3 +106,25 @@
     display: none;
   }
 }
+@media (max-width: 1020px) {
+  .form-signUp {
+    width: 260px;
+  }
+  form {
+    display: flex;
+    justify-content: center;
+  }
+  .container-button {
+    width: 200px;
+    height: 200px;
+    margin-top: -20px;
+  }
+  .btn-signUp {
+    width: 220px;
+    height: 30px;
+    margin-left: 15px;
+  }
+  div .img-background {
+    width: 350px;
+  }
+} ;

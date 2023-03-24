@@ -51,7 +51,8 @@
   margin-left: 45px;
   background-color: #d9d9d9;
   width: 80%;
-  height: 500px;
+  height: 100%;
+  padding-bottom: 25px;
   border-radius: 30px;
 }
 .task {
@@ -82,13 +83,35 @@
   cursor: pointer;
 }
 
-@media (max-width: 440px) {
+@media (max-width: 720px) {
   .input-main {
     width: 280px;
     font-size: 14px;
   }
   .btn-main {
     width: 120px;
+  }
+  .container-tasks {
+    width: 82%;
+    height: 100%;
+  }
+  .form-main {
+    margin: 30px 40px;
+  }
+  .title-task {
+    font-size: 12px;
+  }
+  .task {
+    margin: 0px 15px;
+  }
+}
+@media (max-width: 1020px) {
+  .input-main {
+    width: 380px;
+    font-size: 16px;
+  }
+  .btn-main {
+    width: 150px;
   }
   .container-tasks {
     width: 82%;

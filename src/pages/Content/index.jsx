@@ -11,7 +11,7 @@ export default function Content() {
     const [form,setForm] = useState({tarefa:''})
      
 
-    async function loadTasks() {
+async function loadTasks() {
     try {
         const token = getItem('token')
         const {data} = await api.get('/main', {

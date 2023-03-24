@@ -30,8 +30,8 @@
   letter-spacing: 0px;
   text-align: center;
 }
-@media (max-width: 440px) {
+@media (max-width: 720px) {
   .btn-logout {
-    width: 80px;
+    width: 100px;
   }
 }

@@ -31,11 +31,10 @@ const [form, setForm] = useState([{ nome: '', email: '', senha: ''}]);
     }
     return (
         <>
-        <div className="conatiner">
+        <div className="container">
 
         <div className="border-top"></div>
         <div className="container-signUp">
-        <div>
             <form className="form-signUp" onSubmit={handleSubmit}>
                 <label className="label-form" htmlFor='nome'>Nome</label>
                 <input className="input-form" name='nome' type="text" value={form.name} onChange={handleChangeInput}></input>
@@ -48,7 +47,6 @@ const [form, setForm] = useState([{ nome: '', email: '', senha: ''}]);
                     <Link className="link-button" to={'/sign-in'}>Login</Link>
                 </div>
             </form>
-        </div>
         <img className="img-background" src={backgroundSignUp} alt="background image" />
         </div>
         </div>
