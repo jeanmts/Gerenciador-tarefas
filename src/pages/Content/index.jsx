@@ -53,10 +53,10 @@ async function deleteTasks(id) {
         if(!response.data) {
             return
         }
-        loadTasks()
     } catch (error) {
         console.log(error)
     }
+    loadTasks()
 }
 useEffect(()=>{
     loadTasks();

@@ -11,7 +11,6 @@ const [form, setForm] = useState([{ nome: '', email: '', senha: ''}]);
     function handleChangeInput(e) {
         setForm({ ...form, [e.target.name]: e.target.value });
     }
-    
     async function handleSubmit(e) {
         e.preventDefault();
       
@@ -32,6 +31,8 @@ const [form, setForm] = useState([{ nome: '', email: '', senha: ''}]);
     }
     return (
         <>
+        <div className="conatiner">
+
         <div className="border-top"></div>
         <div className="container-signUp">
         <div>
@@ -48,7 +49,8 @@ const [form, setForm] = useState([{ nome: '', email: '', senha: ''}]);
                 </div>
             </form>
         </div>
-        <img src={backgroundSignUp} alt="background image" />
+        <img className="img-background" src={backgroundSignUp} alt="background image" />
+        </div>
         </div>
         </>
         

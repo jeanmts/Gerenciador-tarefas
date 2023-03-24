@@ -81,3 +81,26 @@
 .img-delete {
   cursor: pointer;
 }
+
+@media (max-width: 440px) {
+  .input-main {
+    width: 280px;
+    font-size: 14px;
+  }
+  .btn-main {
+    width: 120px;
+  }
+  .container-tasks {
+    width: 82%;
+    height: 100%;
+  }
+  .form-main {
+    margin: 30px 40px;
+  }
+  .title-task {
+    font-size: 12px;
+  }
+  .task {
+    margin: 0px 15px;
+  }
+}
