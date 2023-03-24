@@ -79,6 +79,11 @@
 div .img-background {
   width: 500px;
 }
+.span-erro {
+  color: #358914;
+  font-family: Roboto;
+  font-size: 16px;
+}
 @media (max-width: 720px) {
   .container-signUp {
     margin-left: 30px;

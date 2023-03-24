@@ -6,11 +6,13 @@ import { Link } from "react-router-dom";
 import SignUp from "../Sign-up";
 import api from "../../services/api"
 import { useState, useEffect } from "react";
-import {getItem, setItem} from "../../utils/storage"
+import {getItem, removeItem, setItem} from "../../utils/storage"
 import {useNavigate} from "react-router-dom"
 
 export default function SignIn( ) {
     const navigate = useNavigate();
+    const [errorSignIn, setErrorSignIn]  = useState();
+
 useEffect(()=> {
 const token = getItem('token');
     if(token) {
@@ -47,10 +49,14 @@ try {
         })
         const {token} = response.data 
         setItem("token", token)
-        navigate("/main")
+            navigate("/main")
+            setErrorSignIn(removeItem('erroSignIn'))
     } catch (error) {
-        console.log(error)
+        console.log(error.response.data.message)
+        setItem("erroSignIn", error.response.data.message)
+        setErrorSignIn(getItem("erroSignIn"))
     }
+
 }
 
     return (
@@ -66,6 +72,8 @@ try {
                     <label className="label-form" htmlFor="senha">Senha</label>
                     <input className="input-form inputPassword" type="password" name="senha" value={form.senha} onChange={handleInputValue}></input>
                     <img onClick={()=>handleTypeInput()} className="img-input" src={eyesClosed} alt="eyes" />
+                {errorSignIn ? <span className="span-erro">{errorSignIn}</span> : null  }
+
                     <Link type="button" className="link-form" to={'/sign-up'}>Cadastre-se</Link>
                     <button className="button-form">Login</button>
                 </form>

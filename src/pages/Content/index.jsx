@@ -4,12 +4,12 @@ import iconEdit from "../../assets/iconEdit.svg"
 import iconDelete from "../../assets/iconDelete.svg"
 import api from "../../services/api";
 import { useEffect, useState } from "react";
-import {getItem} from '../../utils/storage'
+import {getItem, removeItem, setItem} from '../../utils/storage'
 
 export default function Content() {
     const [tasks,setTasks] =useState([])
     const [form,setForm] = useState({tarefa:''})
-     
+    const [errorContent, setErrorContent] = useState()
 
 async function loadTasks() {
     try {
@@ -38,9 +38,13 @@ async function handleSubmit(e){
         const response = await api.post('/main',{...form},{ headers: {
             Authorization: `Bearer ${token}`
         }})
+        setErrorContent(removeItem("errorContent"))
      } catch (error) {
-        console.log(error)
+        console.log(error.response.data.message)
+        setItem("errorContent", error.response.data.message)
+        setErrorContent(getItem("errorContent"))
     }
+    loadTasks()
 }
 async function deleteTasks(id) {
     try {
@@ -53,8 +57,11 @@ async function deleteTasks(id) {
         if(!response.data) {
             return
         }
+        setErrorContent(removeItem("errorContent"))
     } catch (error) {
-        console.log(error)
+        console.log(error.response.data.message)
+        setItem("errorContent", error.response.data.message)
+        setErrorContent(getItem("errorContent"))
     }
     loadTasks()
 }
@@ -70,6 +77,7 @@ useEffect(()=>{
                     <input className="input-main" type="text" name="tarefa" value={form.tarefa}  onChange={handleInputValue}/>
                     <button className="btn-main">Adicionar</button>
                 </form>
+                {errorContent ? <span className="span-erro">{errorSignIn}</span> : null  }
             <div className="container-tasks">
             {tasks.map((task)=>  {
                 return (
