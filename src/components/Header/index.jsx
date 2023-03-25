@@ -11,6 +11,7 @@ function logout() {
     setTimeout(()=>{
       navigate('/sign-in')
     },[1000])
+    return
   }
 }
 

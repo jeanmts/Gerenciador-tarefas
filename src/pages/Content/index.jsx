@@ -23,7 +23,11 @@ async function loadTasks() {
     } catch (error) {
         console.log(error)
     }
+   
 }
+useEffect(()=>{
+    loadTasks();
+},[])
 function handleInputValue(e) {
 setForm({...form, [e.target.name]: e.target.value})
 }
@@ -39,12 +43,12 @@ async function handleSubmit(e){
             Authorization: `Bearer ${token}`
         }})
         setErrorContent(removeItem("errorContent"))
+        await loadTasks()
      } catch (error) {
         console.log(error.response.data.message)
         setItem("errorContent", error.response.data.message)
         setErrorContent(getItem("errorContent"))
     }
-    loadTasks()
 }
 async function deleteTasks(id) {
     try {
@@ -58,16 +62,14 @@ async function deleteTasks(id) {
             return
         }
         setErrorContent(removeItem("errorContent"))
+        await loadTasks()
     } catch (error) {
         console.log(error.response.data.message)
         setItem("errorContent", error.response.data.message)
         setErrorContent(getItem("errorContent"))
     }
-    loadTasks()
 }
-useEffect(()=>{
-    loadTasks();
-},[])
+
 
     return (
         <>

@@ -3,7 +3,6 @@ import backGroundLogin from "../../assets/background-login.svg";
 import eyesClosed from "../../assets/eyesClosed.svg";
 import eyesOpen from "../../assets/eyesOpen.svg";
 import { Link } from "react-router-dom";
-import SignUp from "../Sign-up";
 import api from "../../services/api"
 import { useState, useEffect } from "react";
 import {getItem, removeItem, setItem} from "../../utils/storage"
@@ -56,7 +55,6 @@ try {
         setItem("erroSignIn", error.response.data.message)
         setErrorSignIn(getItem("erroSignIn"))
     }
-
 }
 
     return (
@@ -73,7 +71,6 @@ try {
                     <input className="input-form inputPassword" type="password" name="senha" value={form.senha} onChange={handleInputValue}></input>
                     <img onClick={()=>handleTypeInput()} className="img-input" src={eyesClosed} alt="eyes" />
                 {errorSignIn ? <span className="span-erro">{errorSignIn}</span> : null  }
-
                     <Link type="button" className="link-form" to={'/sign-up'}>Cadastre-se</Link>
                     <button className="button-form">Login</button>
                 </form>
