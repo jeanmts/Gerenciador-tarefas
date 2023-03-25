@@ -35,7 +35,6 @@ async function handleSubmit(e){
     e.preventDefault()
     try {
         if(!form.tarefa) {
-            console.log("tarefa vazio")
             return
         }
         const token = getItem('token')
