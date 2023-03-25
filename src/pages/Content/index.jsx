@@ -16,7 +16,7 @@ async function loadTasks() {
         const token = getItem('token')
         const {data} = await api.get('/main', {
             headers: {
-                Authorization: `Bearer ${token}`
+                authorization: `Bearer ${token}`
             }
         })
         setTasks(data)
@@ -29,26 +29,27 @@ useEffect(()=>{
     loadTasks();
 },[])
 function handleInputValue(e) {
-setForm({...form, [e.target.name]: e.target.value})
+    setForm({...form, [e.target.name]: e.target.value})
 }
-
 async function handleSubmit(e){
-    e.preventDefault
+    e.preventDefault()
     try {
         if(!form.tarefa) {
+            console.log("tarefa vazio")
             return
         }
         const token = getItem('token')
-        const response = await api.post('/main',{...form},{ headers: {
+        const {data} = await api.post('/main',{...form},{ headers: {
             Authorization: `Bearer ${token}`
         }})
         setErrorContent(removeItem("errorContent"))
-        await loadTasks()
-     } catch (error) {
+        setForm({tarefa:''})
+    } catch (error) {
         console.log(error.response.data.message)
         setItem("errorContent", error.response.data.message)
         setErrorContent(getItem("errorContent"))
     }
+    loadTasks()
 }
 async function deleteTasks(id) {
     try {
@@ -62,14 +63,13 @@ async function deleteTasks(id) {
             return
         }
         setErrorContent(removeItem("errorContent"))
-        await loadTasks()
     } catch (error) {
         console.log(error.response.data.message)
         setItem("errorContent", error.response.data.message)
         setErrorContent(getItem("errorContent"))
     }
+    loadTasks()
 }
-
 
     return (
         <>
