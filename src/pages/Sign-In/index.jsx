@@ -51,7 +51,6 @@ try {
             navigate("/main")
             setErrorSignIn(removeItem('erroSignIn'))
     } catch (error) {
-        console.log(error.response.data.message)
         setItem("erroSignIn", error.response.data.message)
         setErrorSignIn(getItem("erroSignIn"))
     }

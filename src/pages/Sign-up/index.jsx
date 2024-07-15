@@ -9,8 +9,8 @@ import { setItem,getItem, removeItem } from "../../utils/storage";
 
 export default function SignUp() {
 const [form, setForm] = useState([{ nome: '', email: '', senha: ''}]);
-const [errorSignUp, setErrorSignUp]  = useState();
-const navigate = useNavigate();    
+const navigate = useNavigate(); 
+
 function handleChangeInput(e) {
         setForm({ ...form, [e.target.name]: e.target.value });
     }
@@ -28,15 +28,11 @@ function handleChangeInput(e) {
             const response = await api.post('/sign-up',{
                 ...form            
             })
-           setErrorSignUp(removeItem("errorSignUp"))
             navigate("/sign-in")
                 
             } catch (error) {
-                console.log(error.response.data.message)
-                setItem("errorSignUp", error.response.data.message)
-                setErrorSignUp(getItem("errorSignUp"))
+                console.log(error)
             }
-            console.log(errorSignUp)
     }
     return (
         <>
@@ -50,7 +46,6 @@ function handleChangeInput(e) {
                 <input className="input-form" name='email' type="email" value={form.e_mail} onChange={handleChangeInput}></input>
                 <label className="label-form" htmlFor='senha'>Senha</label>
                 <input className="input-form" name='senha' type="password" value={form.password} onChange={handleChangeInput}></input>
-                {errorSignUp ? <span className="span-erro">{errorSignUp}</span> : null  }
                 <div className="container-button">
                     <button  className="btn-signUp">Cadastre-se</button>
                     <Link className="link-button" to={'/sign-in'}>Login</Link>
